@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="pictures/logo.ico"/>
+
+<head>
+<title>Student Scores</title>
+</head>
+
+<div id= "std-0" class="column-template" style="display:none">
+	<div class="score">0</div>
+	<div class="student-info">
+		<button
+		id="minus" type="submit"
+		onclick="decrement(this); order_scores()">
+		-</button>
+		<img class="picture" src="pictures/xxx.jfif">
+		<button
+		id="plus" type="submit"
+		onclick="increment(this); order_scores()">
+		+</button>
+		<div class="name-box"><p class="student-name"></p></div>
+	</div>
+</div>
+
+<div id="container" class="container">
+	<div class="navBar">
+		<button 
+		class="navButton" type="submit"
+		onclick="getWinner();">
+		Announce Winner</button>
+	</div>
+	<div id="winnerOverlay" style="display:none">
+		<div class="navBar exitBar">
+			<button
+			class="navButton exitButton" type="submit"
+			onclick="quitOverlay();">
+			X</button>
+			<button
+			class="navButton epicButton" type="submit"
+			onclick="initiateEpicMode();">
+			epic mode</button>
+		</div>
+		<div id="winImageBox">
+			<img class="winImage" src="">
+		</div>
+		<div id="winnerName" class="">
+			<h1>
+				to be filled
+			</h1>
+		</div>
+	</div>
+</div>
+<script 
+	type="text/javascript" src="js/load.js" charset="utf-8">
+</script>
+<script
+	type="text/javascript" src="js/functions.js" charset="utf-8">
+</script>
