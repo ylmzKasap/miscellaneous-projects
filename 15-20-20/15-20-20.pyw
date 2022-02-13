@@ -1,5 +1,5 @@
 """
-A program that warns the users every 15 and 60 minutes
+A program that warns the users every 12 and 60 minutes
 to rest their eyes and take a walk respectively.
 """
 
@@ -21,20 +21,22 @@ def get_idle_duration():
     return millis / 1000.0
 
 mixer.init()
-current = 0
+current = checkpoint = 0
 while True:
     current += 1
     idleTime = get_idle_duration()
     time.sleep(1)
-    if current % 900 == 0:
+    if current % 720 == 0:
         mixer.music.load('beep.wav')
         mixer.music.play()
+        checkpoint = current
     elif current == 3599:
         mixer.music.load('move.wav')
         mixer.music.play()
-        current = 0
-    while idleTime > 300:
+        current = checkpoint = 0
+    while idleTime > 60:
         time.sleep(1)
         idleTime = get_idle_duration()
-        current = 0
+        if current > checkpoint:
+            current -= 1
 
